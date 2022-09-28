@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_linkify/flutter_linkify.dart';
 import 'dart:async';
 
-import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 void main() => runApp(LinkifyExample());
 
@@ -40,8 +40,8 @@ class LinkifyExample extends StatelessWidget {
   }
 
   Future<void> _onOpen(LinkableElement link) async {
-    if (await canLaunch(link.url)) {
-      await launch(link.url);
+    if (await canLaunchUrlString(link.url)) {
+      await launchUrlString(link.url);
     } else {
       throw 'Could not launch $link';
     }

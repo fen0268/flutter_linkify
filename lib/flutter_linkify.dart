@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:linkify/linkify.dart';
 
 export 'package:linkify/linkify.dart'
@@ -341,14 +340,18 @@ TextSpan buildTextSpan(
               inlineSpan: TextSpan(
                 text: element.text,
                 style: linkStyle,
-                recognizer: onOpen != null ? (TapGestureRecognizer()..onTap = () => onOpen(element)) : null,
+                recognizer: onOpen != null
+                    ? (TapGestureRecognizer()..onTap = () => onOpen(element))
+                    : null,
               ),
             );
           } else {
             return TextSpan(
               text: element.text,
               style: linkStyle,
-              recognizer: onOpen != null ? (TapGestureRecognizer()..onTap = () => onOpen(element)) : null,
+              recognizer: onOpen != null
+                  ? (TapGestureRecognizer()..onTap = () => onOpen(element))
+                  : null,
             );
           }
         } else {
